@@ -1,0 +1,22 @@
+name: 企业微信群定时推送
+on:
+  schedule:
+    # 定时规则：UTC时间（北京时间=UTC+8），例：每天9点推送 → 写 0 1 * * *
+    - cron: '0 8 * * *'  # 改这里：分 时 日 月 周，比如每天18点 → 0 10 * * *
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 推送消息
+        run: |
+          curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=b20d5bd5-35fb-4165-86dd-8653204d6f78' \
+          -H 'Content-Type: application/json' \
+          -d '{
+            "msgtype": "text",
+            "text": {
+              "content": "【每日提醒】Hi，我是消息推送零食小助手
+下午茶时间到！
+提醒大家到婷滢处领取今天的小零食~
+让我们说：谢谢婷滢~！"  # 改这里为你要推送的内容
+            }
+          }'
