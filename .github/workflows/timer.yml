@@ -3,6 +3,7 @@ on:
   schedule:
     # 定时规则：UTC时间（北京时间=UTC+8），例：每天9点推送 → 写 0 1 * * *
     - cron: '0 8 * * *'  # 改这里：分 时 日 月 周，比如每天18点 → 0 10 * * *
+  workflow_dispatch:  # 新增这一行！开启手动触发
 jobs:
   send:
     runs-on: ubuntu-latest
