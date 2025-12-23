@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: 推送消息
         run: |
-          curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=b20d5bd5-35fb-4165-86dd-8653204d6f78' \
+         # curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=b20d5bd5-35fb-4165-86dd-8653204d6f78' \
           -H 'Content-Type: application/json' \
           -d '{
             "msgtype": "text",
